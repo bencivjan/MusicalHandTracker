@@ -1,0 +1,20 @@
+#playback {
+	text-align: center;
+	margin: 20px auto 50px;
+}
+
+#video {
+	display: inline;
+}
+
+#tracking {
+	display: none;
+}
+
+body {
+	background-color: lightslategray;
+}
+
+body > div {
+	text-align: center;
+}
