@@ -6,6 +6,11 @@ const c = canvas.getContext("2d");
 const drawing = document.createElement("canvas");
 const dc = canvas.getContext("2d");
 
+const slider = document.querySelector("#myRange");
+const confidence = document.querySelector("#confidence");
+const resetConfidence = document.querySelector("#resetConfidence");
+const triggerConf = document.querySelector("#triggerConfidence");
+
 let model;
 
 let keys = [];
@@ -43,8 +48,9 @@ Path2D.prototype.roundRect = function(x, y, w, h, r) {
 	return this;
 };
 
+setListeners();
 initNotes();
-stream();
+// stream();
 
 async function stream() {
 	// Load the model.
@@ -128,4 +134,20 @@ function renderNotes() {
 		dc.fill(key.path);
 		key.loadSound();
 	}
+}
+
+function setListeners() {
+	slider.oninput = function() {
+		confidence.textContent = this.value;
+		modelParams.scoreThreshold = this.value / 100;
+		model.setModelParameters(modelParams);
+	};
+
+	resetConfidence.addEventListener("click", () => {
+		let resetVal = 60;
+		confidence.textContent = resetVal;
+		slider.value = resetVal;
+		modelParams.scoreThreshold = resetVal / 100;
+		model.setModelParameters(modelParams);
+	});
 }

@@ -11,6 +11,62 @@
 	display: none;
 }
 
+#confidenceDisplay {
+	color: white;
+}
+
+/* The slider itself */
+.slider {
+	-webkit-appearance: none; /* Override default CSS styles */
+	appearance: none;
+	width: 100%; /* Full-width */
+	height: 25px; /* Specified height */
+	background: #d3d3d3; /* Grey background */
+	outline: none; /* Remove outline */
+	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+	transition: opacity .2s;
+}
+
+.slider {
+	margin-top: 10px;
+	-webkit-appearance: none;
+	width: 50%;
+	height: 15px;
+	border-radius: 5px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #5cb85c;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #5cb85c;
+	cursor: pointer;
+}
+
+.modal-body {
+	text-align: left;
+}
+
 body {
 	background-color: lightslategray;
 }
