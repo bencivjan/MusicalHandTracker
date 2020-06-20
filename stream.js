@@ -50,7 +50,7 @@ Path2D.prototype.roundRect = function(x, y, w, h, r) {
 
 setListeners();
 initNotes();
-// stream();
+stream();
 
 async function stream() {
 	// Load the model.
