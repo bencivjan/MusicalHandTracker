@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <span class="navbar-brand mr-auto">Welcome to the Musical Hand Tracker!</span>
 
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,8 +16,8 @@
         </button> -->
          <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
           <div class="navbar-nav">
-            <button class="nav-item btn btn-success mr-2" id="triggerConfidence" type="button" data-toggle="collapse" data-target=".slidecontainer">Adjust Confidence</button>
-            <button class="btn btn-info" data-toggle="modal" data-target="#troubleshootingModal">Troubleshooting</button>
+            <button class="nav-item btn mr-2" id="triggerConfidence" type="button" data-toggle="collapse" data-target=".slidecontainer">Adjust Confidence</button>
+            <button class="nav-item btn" id="troubleShooting" data-toggle="modal" data-target="#troubleshootingModal">Troubleshooting</button>
           </div>
         <!-- </div> -->
     </nav>
@@ -35,7 +35,7 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
-                <div class="col">If tracking is producing unexpected results, try adjusting the confidence using the "Adjust Confidence" button.</div>
+                <div class="col">Make sure you have sufficient lighting.</div>
               </div>
               <hr>
               <div class="row">
@@ -43,7 +43,7 @@
               </div>
               <hr>
               <div class="row">
-                <div class="col">Make sure you have sufficient lighting.</div>
+                <div class="col">If tracking is still producing unexpected results, try adjusting the confidence using the "Adjust Confidence" button.</div>
               </div>
             </div>
           </div>
@@ -55,17 +55,17 @@
     </div>
     <div class="collapse slidecontainer" data-parent="#navbar">
       <div class="">
-        <input type="range" min="1" max="100" value="60" class="slider" id="myRange">
+        <input type="range" min="1" max="100" value="70" class="slider" id="myRange">
       </div>
       <div>
-        <div id="confidenceDisplay">Confidence level: <span id="confidence">60</span></div>
+        <div id="confidenceDisplay">Confidence level: <span id="confidence">70</span></div>
         <button class="btn btn-sm btn-light" id="resetConfidence">Reset to default</button>
       </div>
     </div>
 
     <div id="playback">
-        <video id="video" width="700" height="500" autoplay="true" preload loop muted></video>
-        <canvas id="tracking" width="700" height="500"></canvas>
+        <video id="video" width="840" height="600" autoplay="true" preload loop muted></video>
+        <canvas id="tracking" width="840" height="600"></canvas>
     </div>
 </body>
 <!-- Bootstrap -->
@@ -76,6 +76,11 @@
 <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
 <!-- Sound.js -->
 <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pts/0.9.4/pts.min.js"></script> -->
+
+<!-- <script src="libs/p5.min.js"></script> -->
+<!-- <script src="libs/p5.sound.min.js"></script> -->
 <!-- My code here -->
 <script src="stream.js"></script>
 </html>

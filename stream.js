@@ -79,6 +79,7 @@ async function runDetection() {
 				if (c.isPointInPath(key.path, x, y)) {
 					if (!key.instance || !key.instance.playing) {
 						key.instance = key.playSound();
+
 						key.instance.playing = true;
 
 						key.instance.on("complete", function() {
@@ -112,17 +113,50 @@ function initNotes() {
 	drawing.width = canvas.width;
 	drawing.height = canvas.height;
 
-	let drums = new Key("drums", "sounds/trapdrums.wav");
+	let square = 150;
+	let hb = Math.round((drawing.width - 3 * square) / 4);
+	let vb = Math.round((drawing.height - 2 * square) / 3);
+
+	console.log(hb);
+	console.log(vb);
+
+	// TOP LEFT
+	let drums = new Key("drums", "sounds/drums.mp3");
 	drums.path = new Path2D();
-	drums.path.roundRect(50, 100, 100, 100, 15);
-	drums.color = "rgba(0, 200, 200, 0.5)";
+	drums.path.roundRect(hb, vb, 150, 150, 15);
+	drums.color = "rgba(0, 245, 251, 0.5)";
 
-	let ufo = new Key("ufo", "sounds/ufo.mp3");
-	ufo.path = new Path2D();
-	ufo.path.roundRect(300, 100, 100, 100, 15);
-	ufo.color = "rgba(0, 250, 0, 0.5)";
+	// TOP MIDDLE
+	let maracas = new Key("maracas", "sounds/maracas.mp3");
+	maracas.path = new Path2D();
+	maracas.path.roundRect(2 * hb + square, vb, 150, 150, 15);
+	maracas.color = "rgba(150, 0, 255, 0.5)";
 
-	keys.push(drums, ufo);
+	// TOP RIGHT
+	let bronxSynth = new Key("bronxSynth", "sounds/bronxSynth.mp3");
+	bronxSynth.path = new Path2D();
+	bronxSynth.path.roundRect(3 * hb + 2 * square, vb, 150, 150, 15);
+	bronxSynth.color = "rgba(255, 241, 0, 0.5)";
+
+	// BOTTOM LEFT
+	let bass = new Key("bass", "sounds/bass.mp3");
+	bass.path = new Path2D();
+	bass.path.roundRect(hb, 2 * vb + square, 150, 150, 15);
+	bass.color = "rgba(255, 0, 227, 0.5)";
+
+	// BOTTOM MIDDLE
+	let guitarStrum = new Key("guitarStrum", "sounds/guitarStrum.mp3");
+	guitarStrum.path = new Path2D();
+	guitarStrum.path.roundRect(2 * hb + square, 2 * vb + square, 150, 150, 15);
+	guitarStrum.color = "rgba(56, 255, 18, 0.5)";
+
+	// BOTTOM RIGHT
+	let synth = new Key("synth", "sounds/synth.mp3");
+	synth.path = new Path2D();
+	synth.path.roundRect(3 * hb + 2 * square, 2 * vb + square, 150, 150, 15);
+	synth.color = "rgba(25, 0, 160, 0.5)";
+
+	keys.push(drums, maracas, bronxSynth, bass, guitarStrum, synth);
 }
 
 function renderNotes() {
@@ -144,7 +178,7 @@ function setListeners() {
 	};
 
 	resetConfidence.addEventListener("click", () => {
-		let resetVal = 60;
+		let resetVal = 70;
 		confidence.textContent = resetVal;
 		slider.value = resetVal;
 		modelParams.scoreThreshold = resetVal / 100;

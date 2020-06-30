@@ -15,6 +15,29 @@
 	color: white;
 }
 
+nav#navbar {
+	background-color: white;
+}
+
+#triggerConfidence {
+	background-color: white;
+	color: black;
+}
+
+#triggerConfidence:hover {
+	background-color: lightslategray;
+	color: white;
+}
+
+#troubleShooting {
+	background-color: white;
+	color: black;
+}
+#troubleShooting:hover {
+	background-color: lightslategray;
+	color: white;
+}
+
 /* The slider itself */
 .slider {
 	-webkit-appearance: none; /* Override default CSS styles */
@@ -69,6 +92,11 @@
 
 body {
 	background-color: lightslategray;
+}
+
+button:focus {
+	outline: none !important;
+	box-shadow: none !important;
 }
 
 body > div {
